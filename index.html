@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Templates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header, .footer {
+            width: 100%;
+            height: auto;
+        }
+        .header img, .footer img {
+            width: 100%;
+            height: auto;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .template-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 400px;
+            transition: background-color 0.3s ease;
+        }
+        .template-button:hover {
+            background-color: #0056b3;
+        }
+        .template-container {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        textarea {
+            width: 100%;
+            height: calc(100vh - 300px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            box-sizing: border-box;
+        }
+        @media print {
+            .template-button, .footer {
+                display: none;
+            }
+            textarea {
+                border: none;
+                box-shadow: none;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://i.imgur.com/mX7O7fj.jpeg" alt="Header Image">
+    </div>
+
+    <div class="content">
+        <div id="button-container">
+            <button class="template-button" onclick="loadTemplate('panel-application')">Panel Application Letter</button>
+            <button class="template-button" onclick="loadTemplate('employment-contract')">Employment Contract</button>
+            <button class="template-button" onclick="loadTemplate('pre-employment')">Pre-Employment Medical Check-Up</button>
+            <button class="template-button" onclick="loadTemplate('typhoid')">Typhoid Vaccination Certificate</button>
+            <button class="template-button" onclick="loadTemplate('medication-authorization')">Medication Authorization Letter</button>
+            <button class="template-button" onclick="loadTemplate('fit-to-fly')">Fit to Fly/Work</button>
+            <button class="template-button" onclick="loadTemplate('referral-letter')">Referral Letter to Hospital</button>
+        </div>
+        
+        <div class="template-container" id="template-container">
+            <textarea id="template-content"></textarea>
+        </div>
+    </div>
+
+    <div class="footer">
+        <img src="https://i.imgur.com/sL13tNO.jpeg" alt="Footer Image">
+    </div>
+
+    <script>
+        function loadTemplate(template) {
+            const buttonContainer = document.getElementById('button-container');
+            const container = document.getElementById('template-container');
+            const content = document.getElementById('template-content');
+
+            let templateText = '';
+
+            switch(template) {
+                case 'panel-application':
+                    templateText = `
+[Date]
+
+To:
+[Recipient's Name]
+[Recipient's Position]
+[Recipient's Organization]
+[Recipient's Address]
+
+Dear Sir/Madam,
+
+APPLICATION FOR APPOINTMENT AS PANEL CLINIC
+
+We look forward to providing you with high-quality healthcare facilities. Our goal at [Clinic Name] is to provide cost-effective and efficient service in the healthcare industry. The greatest wealth is health.
+
+[Clinic Name] is situated at [Clinic Address]. We will be operating every day from [Operating Hours].
+
+Our clinic is managed by doctors who are fully registered, qualified, and dedicated to their work. We offer a wide range of services such as consultation and treatment of general health ailments, medical examination, minor surgery, dressing, ultrasonography, and management of chronic illness. It will be our honor if we are appointed as one of your panel clinics. More information on the services and facilities are attached herewith. Please do not hesitate to contact us for further enquiries.
+
+Yours Sincerely,
+
+[Your Name]
+[Your Position]
+[Your Contact Information]
+[Clinic Name]
+                    `;
+                    break;
+                case 'employment-contract':
+                    templateText = `
+EMPLOYMENT CONTRACT
+
+[Company Name] is extremely pleased to offer you the [Position] position in our Clinic.
+
+Your basic salary will be RM [Salary Amount] (Ringgit Malaysia [Salary Amount in Words] Only) per month commencing on [Start Date].
+
+Place of Work
+[Company Name] - [Address]
+
+Normal Working Times
+The normal working days and hours will be 8 hours per day with shift rotation (AM, PM, and Night shift), 6 days per week, and flexible working hours can be arranged upon request. The nature of our business may require us to vary the normal operating hours, so it is likely that you will be required to work additional hours.
+
+Scope of Work
+You will be expected to carry out to the best of your abilities any legitimate work to help [Company Name] or its related companies to conduct business.
+
+Receives, screens, interviews, and registers patients or clinical research subjects; takes and records vital signs, as appropriate to clinic operations; may assist with routine medical procedures, as appropriate to training and/or certification.
+Answers telephone inquiries from patients and others; screens calls to determine the nature and urgency of inquiry, refers calls as appropriate, and/or schedules appointments with practitioners; instructs patients as needed regarding administrative and/or logistical procedures.
+Obtains patient histories, and insurance approvals as appropriate; prepares and updates medical charts and associated records and enters patient data into files and automated databases.
+Arranges for prescribed laboratory tests, specialist referrals, and/or diagnostic procedures: orders, and may transport, drugs and/or other prescribed patient care aids as directed; performs or assists in the performance of basic clinical and/or laboratory procedures, as appropriate to the activities of the unit.
+Collects, verifies, records, and maintains data on clinical activity and/or research; prepares associated reports as required.
+Orders and maintains inventories of supplies, as required to support day-to-day unit clinical and administrative operations.
+Provides day-to-day staff support for the unit, including preparing documents and reports, providing office services, scheduling, and facilitating meetings and travel arrangements, and/or providing dictation or transcription services.
+Obtains and verifies patient billing information, as appropriate to the activities of the unit; processes patient accounts and maintains records.
+Assists in maintaining the cleanliness and serviceability of unit facilities and equipment; arranges for maintenance and repair as needed.
+May supervise student employees, volunteers, and/or interns; may lead lower-graded staff.
+Performs miscellaneous job-related duties as assigned.
+
+Probationary Period
+You will undergo a three-month probationary period during which your performance will be assessed. You will receive a confirmation letter after completing the probation period.
+
+Employees Provident Fund and/or SOCSO
+We shall each make the requisite minimum contributions to the Employees Provident Fund and/or SOCSO or any other lawful deductions in accordance with the statutory requirements.
+
+Bonus
+You will be expected to receive a bonus as a confirmed staff. However, it will be entirely discretionary but will broadly be based on your performance and the performance of [Company Name] and its related companies.
+
+Leave Benefits
+You will be entitled to 10 working days of paid leave during the term in addition to the paid holidays based on the gazetted Public Holidays of the Federal Government and State Governments where your permanent work location is situated. Any vacation days must be agreed upon by your manager. These increase with each year served. You are only eligible for annual leaves after completing the probation period.
+
+Medical Benefits
+You are entitled to receive medical treatment from [Company Name] only for RM300 annually. Staff are only eligible to claim a maximum of RM100 every 4 months. You are only eligible for medical benefits after completing the probation period.
+
+Sick Leave
+You will be entitled to 14 days of paid sick leave. Your paid sick leave entitlement is subject to the presentation of a medical certificate issued by a registered medical practitioner in [Company Name], [Location] within 24 hours upon your return to work and to the provisions of the Employment Act 1955.
+
+Use of Personal Vehicle
+You are expected to drive to work in your own car every workday. During working hours, and outside working hours, you will be expected to use your car to carry out various duties.
+
+Annual Review
+At every anniversary of your start date with [Company Name], your pay will be reviewed depending on your performance.
+
+Conflicts of Interest
+You must strictly not venture into any kind of activities that may conflict with our interests. You will strictly need to get our prior approval before assuming other employment or business opportunities for financial gain whilst within our employment.
+
+Statutory Enactment
+For your information, the contents of these terms & conditions are subject to the provisions of all relevant statutory enactments affecting your employment with us currently in force or from time to time introduced or modified. Should there be any discrepancy between the contents of these Terms & Conditions and the provisions of the statutory enactments, the provisions of the statutory enactments will apply.
+
+Confidentiality and Non-Disclosure
+You agree that at all times, whether during or after the term of your employment, you observe and maintain the highest degree of confidentiality and non-disclosure of the company’s trade secrets, business plans, and confidential information during and beyond the term of this contract.
+
+Upon completion of the term of this agreement or its termination, you will promptly surrender to [Company Name] all documents and property including any confidential information which belongs to [Company Name]. Any work product produced by you during the term of this contract is and shall remain the sole property of [Company Name].
+
+Disputes
+Any disputes or differences in connection with the terms and conditions of service will be settled between [Company Name] and the employee on an amicable basis.
+
+This contract is effective from [Start Date].
+
+By signing this letter, you acknowledge that you have read, understood, and agree to the terms and conditions of your employment.
+
+[Your Name]
+[Your Position]
+[Company Name]
+
+I, [Employee's Name], accept the offer of employment in the above terms and conditions.
+
+Signature: ____________________
+Date: _________________________
+                    `;
+                    break;
+                case 'pre-employment':
+                    templateText = `
+[Date]
+
+To:
+[Employee's Name]
+[Employee's Address]
+
+Dear [Employee's Name],
+
+SUBJECT: PRE-EMPLOYMENT MEDICAL CHECK-UP
+
+We are pleased to inform you that you have been shortlisted for the position of [Job Title] at [Company Name]. As part of our hiring process, we require you to undergo a pre-employment medical check-up to ensure you are fit for the role.
+
+Please visit our panel clinic, [Clinic Name], located at [Clinic Address], for your medical examination. Kindly bring along your identification card and this letter for verification purposes.
+
+Once the medical check-up is completed and the results are satisfactory, we will proceed with the next steps of your employment process.
+
+Thank you for your cooperation.
+
+Yours sincerely,
+
+[Your Name]
+[Your Position]
+[Company Name]
+                    `;
+                    break;
+                case 'typhoid':
+                    templateText = `
+[Date]
+
+TO WHOM IT MAY CONCERN
+
+This is to certify that [Employee's Name] of [Employee's Address] has been vaccinated against Typhoid on [Vaccination Date].
+
+The vaccination was administered at [Clinic Name], [Clinic Address].
+
+Yours sincerely,
+
+[Doctor's Name]
+[Doctor's Position]
+[Clinic Name]
+                    `;
+                    break;
+                case 'medication-authorization':
+                    templateText = `
+[Date]
+
+To Whom It May Concern,
+
+This is to authorize [Patient's Name], NRIC No: [NRIC Number], to carry and administer the following medication(s) during the course of his/her employment/school activities:
+
+1. [Medication Name] - [Dosage and Instructions]
+2. [Medication Name] - [Dosage and Instructions]
+
+The above medications are prescribed by me for the treatment of [Medical Condition].
+
+Should you have any queries or require further information, please do not hesitate to contact me at [Contact Information].
+
+Yours sincerely,
+
+[Doctor's Name]
+[Doctor's Position]
+[Clinic Name]
+                    `;
+                    break;
+                case 'fit-to-fly':
+                    templateText = `
+[Date]
+
+TO WHOM IT MAY CONCERN
+
+This is to certify that [Patient's Name], NRIC No: [NRIC Number], has been examined and found fit to fly/work.
+
+He/She is not suffering from any condition that would prevent him/her from flying/working or pose a risk to others.
+
+Should you have any queries or require further information, please do not hesitate to contact me at [Contact Information].
+
+Yours sincerely,
+
+[Doctor's Name]
+[Doctor's Position]
+[Clinic Name]
+                    `;
+                    break;
+                case 'referral-letter':
+                    templateText = `
+[Date]
+
+To:
+[Recipient's Name]
+[Recipient's Position]
+[Hospital Name]
+[Hospital Address]
+
+Dear [Recipient's Name],
+
+SUBJECT: REFERRAL LETTER FOR [Patient's Name], NRIC No: [NRIC Number]
+
+I am writing to refer my patient, [Patient's Name], who has been under my care since [Date], for further evaluation and management of [Medical Condition].
+
+[Patient's Name] presents with [Symptoms] and has undergone the following investigations: [List of Investigations]. The results are as follows: [Summary of Results].
+
+Based on my assessment, I believe that [Patient's Name] would benefit from [Specific Treatment or Specialist Care]. I kindly request your expertise in managing this case.
+
+Please find attached the relevant medical records and investigation reports for your reference.
+
+Thank you for your attention to this matter.
+
+Yours sincerely,
+
+[Your Name]
+[Your Position]
+[Clinic Name]
+                    `;
+                    break;
+                default:
+                    templateText = 'Template not found.';
+            }
+
+            content.value = templateText;
+            buttonContainer.style.display = 'none';
+            container.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
